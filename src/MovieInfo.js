@@ -14,17 +14,19 @@ function MovieInfo(){
 
     const [movieDetails, setDetails] = useState( {} );
 
-    useEffect( function(){
+    useEffect(
+      function () {
         axios({
           url: `https://api.themoviedb.org/3/movie/${movie_id}`,
           params: {
-            api_key: "2089876d1b6f5a914dd26164d4f96b9b"
+            api_key: "2089876d1b6f5a914dd26164d4f96b9b",
           },
-        }).then(function(movieInfo){
-            setDetails(movieInfo.data);
-        })
-
-    }, []);
+        }).then(function (movieInfo) {
+          setDetails(movieInfo.data);
+        });
+      },
+      [movie_id]
+    );
 
 
     return (
